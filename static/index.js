@@ -91,7 +91,7 @@ async function fetchProfile() {
         const data = await res.json();
         
         // 高亮饮食偏好
-        const goal = data.diet_goal || '健康膳食 (营养均衡)';
+        const goal = data.diet_goal || '无偏好 (随缘享用)';
         const cards = document.querySelectorAll('.pref-card');
         cards.forEach(card => {
             const cardGoal = card.getAttribute('data-goal');
@@ -162,7 +162,7 @@ async function removeAvoidIngredient(name) {
 async function saveProfile() {
     try {
         const activeCard = document.querySelector('.pref-card.active');
-        const goal = activeCard ? activeCard.getAttribute('data-goal') : '健康膳食 (营养均衡)';
+        const goal = activeCard ? activeCard.getAttribute('data-goal') : '无偏好 (随缘享用)';
         
         await fetch(`${API_BASE}/api/profile`, {
             method: 'POST',

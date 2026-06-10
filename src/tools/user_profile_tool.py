@@ -13,7 +13,7 @@ DEFAULT_PROFILE = {
     "diet_goal": "",                      # 默认无健身目标（普通饮食）
     "avoid_ingredients": [],              # 默认无忌口
     "workday_lunch_delivery": False,      # 默认不开启写字楼外卖路由，需用户手动勾选启用
-    "office_locations": []                # 默认不硬编码任何写字楼地名关键词，由用户自己设定
+    "office_locations": ["写字楼", "大厦", "园区", "科学园", "科技园", "中心", "工作室", "工位", "公司", "办公室"]  # 默认的常见写字楼及办公地名关键字
 }
 
 def init_profile_if_not_exists(profile_path: str = PROFILE_PATH):

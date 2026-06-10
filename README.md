@@ -19,8 +19,8 @@
 
 1. **ReAct 智能体与 LangGraph 双节点状态图**：
    采用极简而高凝聚的双节点拓扑（`agent_node` 决策交互节点 与 `memory_node` 口味画像记忆节点）。大厨作为唯一智能中枢，自发调用 7 大工具，并在对话退出或重置时一键归档记忆，更新至本地 `user_profile.json`。
-2. **混合检索与 RRF 重排**：
-   使用本地向量数据库（ChromaDB/FAISS）的高精语义检索 + 本地 BM25 词频检索，配合 **RRF (Reciprocal Rank Fusion) 倒数排名融合算法** 进行重新计算排序，解决模糊需求与错别字召回痛点。
+2. **混合检索与归一化加权融合**：
+   使用本地向量数据库（ChromaDB）的高精语义检索 + 本地 BM25 词频检索，在 Python 列表中配合 **Min-Max 归一化线性加权融合 (Weighted Linear Fusion) 算法** 进行计算，并引入了时令加权 (Season Boosting) 与标题精准匹配加权 (Title Boosting) 机制，解决模糊需求、错别字及小样本库下的召回排名倒置痛点。
 3. **冰箱物理联动与下厨条件智能识别**：
    * **物理扣除**：大厨 Agent 在收到“确认做某菜”或点击“开始烹饪”时，将触发底层 `deduct_fridge_ingredients` 工具，对冰箱中对应的食材库存进行真实物理扣减。
    * **无下厨条件兼容**：自动识别用户在“公司”、“不开火”或画像中“外卖（Delivery）”的意图，解除冰箱食材强过滤限制，自动分流推荐。
@@ -39,7 +39,7 @@ chefrag/
 │  ├─ agent/
 │  │  └─ graph.py           # LangGraph 决策核心（agent_node + memory_node）
 │  ├─ rag/
-│  │  └─ vector_store.py    # 混合检索底座（FAISS/ChromaDB + BM25 混合检索与 RRF）
+│  │  └─ vector_store.py    # 混合检索底座（ChromaDB + BM25 归一化混合加权与 Boosting）
 │  └─ tools/
 │     ├─ agent_tools.py     # 解耦后的 7 大 LangChain @tool 工具插件
 │     ├─ context_tool.py    # 气象感知与时令养生分析（四级高可用天气链）

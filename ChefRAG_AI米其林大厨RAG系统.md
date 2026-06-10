@@ -38,11 +38,11 @@
 | LangGraph | `src/agent/graph.py` | 状态图框架，构建 `agent_node` 与 `memory_node` 闭环 |
 | MemorySaver | `src/agent/graph.py` | LangGraph 持久化 Checkpointer，实现多轮会话状态与记忆沉淀 |
 | FastAPI | `web_server.py` | 提供冰箱 CRUD、画像配置、天气定位以及 Agent 对话的 REST API |
-| LangChain | `src/tools/agent_tools.py` | 文档（Document）、`@tool` 装饰器、模型交互及解析封装 |
+| LangChain | `src/tools/agent_tools.py` | @tool 装饰器、各类对话消息（AIMessage等）、模型交互及解析封装 |
 | ChatOpenAI | `src/tools/agent_tools.py` | 调用兼容 OpenAI 接口的大语言模型 |
-| ChromaDB / FAISS | `src/rag/vector_store.py` | 本地向量数据库，用于菜谱数据的高精语义检索 |
+| ChromaDB | `src/rag/vector_store.py` | 本地向量数据库，用于菜谱数据的高精语义检索 |
 | BM25Retriever | `src/rag/vector_store.py` | 关键词检索，辅助进行词频召回 |
-| RRF (Reciprocal Rank Fusion) | `src/rag/vector_store.py` | 倒数排名融合算法，将向量检索与 BM25 的检索结果无缝重排，辅以 Numpy float64 转换兼容 |
+| 归一化加权融合 | `src/rag/vector_store.py` | Min-Max 归一化线性加权混合检索算法，辅以 Title/Season 双重 Boosting 重排，纯 Python 列表数值处理 |
 | 四级高可用天气查询链 | `src/tools/context_tool.py` | 高德天气 -> 心知天气 -> 和风天气 -> wttr.in 兜底，自动域名防封切换 |
 | 拟真打字机流式输出 | `static/index.js` & `index.css` | 前端逐字渲染流（12ms 间隔），配有闪烁的古铜金打字游标（`▮`） |
 | HTML5 / CSS3 / JavaScript | `static/` | 实现 Heritage Warmth 复古拟物化 Web 仪表盘（毛玻璃侧栏、实木轴天气卷轴、法式餐单食谱卡、陶瓷小抽屉冰箱货架） |
@@ -57,7 +57,7 @@ chefrag/
 │  ├─ agent/
 │  │  └─ graph.py           # LangGraph 双节点拓扑决策核心（agent_node + memory_node）
 │  ├─ rag/
-│  │  └─ vector_store.py    # 混合检索底座（FAISS/ChromaDB + BM25 + NumPy类型转换）
+│  │  └─ vector_store.py    # 混合检索底座（ChromaDB + BM25 归一化融合）
 │  └─ tools/
 │     ├─ agent_tools.py     # 解耦后的 7 大 LangChain @tool 工具接口与状态缓存容器
 │     ├─ context_tool.py    # 定位天气应季时令解析（高德/心知/和风等四级高可靠查询链）
@@ -117,7 +117,7 @@ chefrag/
 
 ## 8. 可匹配岗位方向
 * **AI Agent 开发工程师 / 大模型应用开发工程师**：掌握 LangGraph 状态图建模、ReAct 设计模式、多工具链协同与偏好记忆持久化。
-* **RAG 算法开发工程师**：精通 ChromaDB/FAISS、BM25、RRF（倒数排名融合算法）的检索链路、查询重写与元数据前过滤。
+* **RAG 算法开发工程师**：精通 ChromaDB、BM25、混合检索归一化权重融合与 Title/Season 双重 Boosting 检索链路、查询重写与元数据前过滤。
 * **Python 全栈开发 / 后端开发工程师**：熟悉 FastAPI 接口封装、单端口全站静态托管、CORS 跨域与拟物化前端页面开发。
 
 ---
@@ -130,7 +130,7 @@ chefrag/
 > 
 > 该项目解决的最核心痛点是打通大模型与物理实体状态的深度联动。我编写了 7 个底层高内聚的 @tool 插件。当用户说‘就做冬瓜排骨汤吧’，Agent 会解析出意图，通过工具在后端物理扣减冰箱的食材量，并刷新前端看板。
 > 
-> 检索层我采用了 FAISS + BM25 配合 RRF（倒数排名融合算法）进行混合重排；同时，我接入了高德、心知等四级高可靠天气感知链，使 Agent 能够自适应当前天气生成应季调养建议。
+> 检索层我采用了 ChromaDB + BM25 配合归一化加权进行混合分数融合，并在此之上引入了 Title/Season 自适应双重 Boosting 算法以解决小样本库召回排序失效的工程痛点；同时，我接入了高德、心知等四级高可靠天气感知链，使 Agent 能够自适应当前天气生成应季调养建议。
 > 
 > 此外，我重点设计了系统的**工程防灾与降级机制**：当大模型连接超时或本地向量库 DLL 缺失时，系统能在秒级无感降级为基于规则的本地混合检索与静态季节养生推荐，保证了极高的稳定性。项目配备了 6 大场景回归测试和 REST 接口自动化测试，完美通过了 100% 验证用例。”
 
