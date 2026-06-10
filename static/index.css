@@ -1313,3 +1313,205 @@ input:checked + .slider-round:before {
     50% { opacity: 1; }
 }
 
+/* ==========================================================================
+   Responsive & Mobile Drawer Styles (max-width: 1024px)
+   ========================================================================== */
+
+/* 1. PC 端默认隐藏移动端专属控制按钮和侧栏关闭按钮 */
+.header-mobile-actions,
+.sidebar-left .mobile-close-btn,
+.sidebar-right .mobile-close-btn {
+    display: none;
+}
+
+/* 侧滑抽屉背景遮罩层 */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(44, 39, 36, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 190;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.38s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media (max-width: 1024px) {
+    /* 2. 隐藏 PC 端右侧装饰，显示移动端操作按钮 */
+    .header-right-decor {
+        display: none !important;
+    }
+    
+    .header-mobile-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .btn-mobile-action {
+        width: 36px;
+        height: 36px;
+        border-radius: var(--round-sm);
+        background-color: var(--accent-light);
+        color: var(--accent-secondary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--border-subtle);
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition-fast);
+    }
+    
+    .btn-mobile-action:hover {
+        background-color: var(--accent-primary);
+        color: #FFFFFF;
+        transform: translateY(-1px);
+    }
+    
+    .btn-mobile-action i {
+        width: 18px;
+        height: 18px;
+    }
+    
+    /* 3. 主页面容器与布局微调 */
+    .app-container {
+        padding: 8px;
+        gap: 0;
+        position: relative;
+    }
+    
+    .chat-area {
+        width: 100% !important;
+        height: 100%;
+        border-radius: var(--round-md);
+    }
+    
+    /* 4. 侧边栏转换为固定绝对定位的滑出抽屉 */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        z-index: 200;
+        border-radius: 0; /* 手机端贴边去掉圆角 */
+        box-shadow: var(--shadow-lg);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        width: 320px;
+        max-width: 85%;
+    }
+    
+    /* 左侧偏好侧栏 */
+    .sidebar-left {
+        left: 0;
+        transform: translateX(-100%);
+        border-right: 1px solid var(--border-subtle);
+    }
+    
+    .sidebar-left.open {
+        transform: translateX(0);
+    }
+    
+    /* 右侧冰箱侧栏 - 对齐 ui_design.pen 的 Fridge Drawer Panel 样式 */
+    .sidebar-right {
+        right: 0;
+        transform: translateX(100%);
+        border-left: 1px solid var(--border-subtle);
+        background-color: rgba(232, 228, 216, 0.95) !important; /* 磨砂底色 #E8E4D8F2 */
+        backdrop-filter: blur(12px) !important;
+    }
+    
+    .sidebar-right.open {
+        transform: translateX(0);
+    }
+    
+    /* 5. 侧边栏内部的移动端专属关闭按钮 */
+    .sidebar-left .mobile-close-btn,
+    .sidebar-right .mobile-close-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: var(--round-sm);
+        background-color: rgba(142, 122, 74, 0.08);
+        color: var(--accent-primary);
+        border: none;
+        cursor: pointer;
+        transition: var(--transition-fast);
+    }
+    
+    .sidebar-left .mobile-close-btn:hover,
+    .sidebar-right .mobile-close-btn:hover {
+        background-color: var(--accent-primary);
+        color: #FFFFFF;
+    }
+    
+    /* 偏好设置侧栏的关闭按钮定位 */
+    .sidebar-left .profile-card {
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-top: 48px; /* 留出顶部返回按钮空间 */
+    }
+    
+    .sidebar-left .profile-card .mobile-close-btn {
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        display: flex;
+    }
+    
+    /* 智能冰箱侧栏的关闭按钮定位 */
+    .sidebar-right .fridge-header {
+        position: relative;
+        padding-top: 42px; /* 留出顶部关闭按钮空间 */
+    }
+    
+    .sidebar-right .fridge-header .mobile-close-btn {
+        position: absolute;
+        right: 0;
+        top: 4px;
+        display: flex;
+    }
+    
+    /* 6. 天气提示卷轴及聊天内边距移动端微调，防超宽溢出 */
+    .context-bar.scroll-theme {
+        padding: 0 12px;
+        height: 54px;
+    }
+    
+    .weather-message {
+        font-size: 11.5px;
+    }
+    
+    .weather-icon-badge {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .status-indicator {
+        padding: 3px 8px;
+        font-size: 10px;
+    }
+    
+    .message-bubble {
+        max-width: 92%;
+    }
+    
+    .dialogue-container {
+        padding: 16px 12px;
+    }
+    
+    .chat-input-bar {
+        padding: 12px;
+    }
+}
+

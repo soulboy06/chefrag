@@ -25,6 +25,15 @@ const elFridgeListExpiry = document.getElementById('fridge-item-expiry');
 const elBtnAddFridge = document.getElementById('btn-add-fridge');
 const elFridgeItemList = document.getElementById('fridge-item-list');
 
+// 移动端响应式侧滑抽屉 DOM 引用
+const elBtnMobileProfile = document.getElementById('btn-mobile-profile');
+const elBtnMobileFridge = document.getElementById('btn-mobile-fridge');
+const elBtnCloseProfile = document.getElementById('btn-close-profile');
+const elBtnCloseFridge = document.getElementById('btn-close-fridge');
+const elSidebarOverlay = document.getElementById('sidebar-overlay');
+const elSidebarLeft = document.querySelector('.sidebar-left');
+const elSidebarRight = document.querySelector('.sidebar-right');
+
 // 全局配置
 let avoidIngredientsList = [];
 
@@ -575,6 +584,38 @@ async function handleResetSession() {
 
 // 事件绑定
 function setupEventListeners() {
+    // 移动端侧栏呼出与关闭逻辑
+    const closeSidebars = () => {
+        if (elSidebarLeft) elSidebarLeft.classList.remove('open');
+        if (elSidebarRight) elSidebarRight.classList.remove('open');
+        if (elSidebarOverlay) elSidebarOverlay.classList.remove('active');
+    };
+
+    if (elBtnMobileProfile && elSidebarLeft && elSidebarOverlay) {
+        elBtnMobileProfile.addEventListener('click', () => {
+            closeSidebars(); // 先全部清空，避免重叠
+            elSidebarLeft.classList.add('open');
+            elSidebarOverlay.classList.add('active');
+        });
+    }
+    if (elBtnMobileFridge && elSidebarRight && elSidebarOverlay) {
+        elBtnMobileFridge.addEventListener('click', () => {
+            closeSidebars(); // 先全部清空，避免重叠
+            elSidebarRight.classList.add('open');
+            elSidebarOverlay.classList.add('active');
+        });
+    }
+    
+    if (elBtnCloseProfile) {
+        elBtnCloseProfile.addEventListener('click', closeSidebars);
+    }
+    if (elBtnCloseFridge) {
+        elBtnCloseFridge.addEventListener('click', closeSidebars);
+    }
+    if (elSidebarOverlay) {
+        elSidebarOverlay.addEventListener('click', closeSidebars);
+    }
+
     // 城市定位保存
     elBtnUpdateCity.addEventListener('click', updateCity);
     elCityInput.addEventListener('keydown', (e) => {
