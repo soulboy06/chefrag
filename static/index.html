@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef-RAG 智能小厨娘 - 您的私人时令健康膳食大厨</title>
+    <!-- 引入高级现代与典雅复古字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="index.css">
+    <!-- 引入 Lucide 图标库 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- 精美 Web App 全局顶栏 -->
+        <header class="app-header">
+            <div class="logo-area">
+                <!-- 精致的手绘线条 SVG Logo -->
+                <svg class="header-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="28" stroke="#8E7A4A" stroke-width="2.5" fill="rgba(242, 236, 225, 0.6)"/>
+                    <!-- 厨师帽 -->
+                    <path d="M22 28C22 23.5 25.5 20 30 20H34C38.5 20 42 23.5 42 28C42 30 40 31.5 38.5 32.5V36H25.5V32.5C24 31.5 22 30 22 28Z" stroke="#8E7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="rgba(142, 122, 74, 0.15)"/>
+                    <path d="M28 20V26" stroke="#8E7A4A" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M32 20V28" stroke="#8E7A4A" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M36 20V26" stroke="#8E7A4A" stroke-width="1.5" stroke-linecap="round"/>
+                    <rect x="24" y="36" width="16" height="4" rx="2" fill="#8E7A4A"/>
+                    <!-- 交叉的勺子和叉子 -->
+                    <path d="M20 48L26 42" stroke="#8E7A4A" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M44 48L38 42" stroke="#8E7A4A" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M20 48C19.5 48.5 18 50 18 50.5C18 51.5 19 52 20 52C20.5 52 22 50.5 22.5 50L20 48Z" fill="#8E7A4A"/>
+                    <path d="M44 48C44.5 48.5 46 50 46 50.5C46 51.5 45 52 44 52C43.5 52 42 50.5 41.5 50L44 48Z" fill="#8E7A4A"/>
+                </svg>
+                <div class="brand-text">
+                    <h1 class="brand-title">Chef-RAG</h1>
+                    <p class="brand-subtitle">智能小厨娘 · 时令健康膳食大厨</p>
+                </div>
+            </div>
+            
+            <div class="header-right-decor">
+                <span class="decor-stamp">SINCE 2026</span>
+                <span class="decor-dot"></span>
+                <span class="decor-tagline">HERITAGE WARMTH</span>
+            </div>
+        </header>
+
+        <div class="app-container">
+            
+            <!-- 左侧 Sidebar：个人画像与偏好 -->
+            <aside class="sidebar sidebar-left">
+                <!-- 个人信息头部 -->
+                <div class="profile-card">
+                    <div class="avatar-container">
+                        <svg class="avatar-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 6C13.93 6 15.5 7.57 15.5 9.5C15.5 11.43 13.93 13 12 13C10.07 13 8.5 11.43 8.5 9.5C8.5 7.57 10.07 6 12 6ZM12 20C9.08 20 6.55 18.51 5.11 16.27C5.16 13.94 9.8 12.7 12 12.7C14.19 12.7 18.84 13.94 18.89 16.27C17.45 18.51 14.92 20 12 20Z" fill="#8E7A4A"/>
+                        </svg>
+                    </div>
+                    <div class="user-info">
+                        <h3>健康小管家</h3>
+                        <p class="city-badge-container">
+                            <i data-lucide="map-pin" class="small-icon"></i>
+                            <span id="current-location">深圳市</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="sidebar-divider"></div>
+
+                <!-- 常住城市输入修改 -->
+                <div class="setting-section">
+                    <label class="section-label">
+                        <i data-lucide="compass" class="label-icon"></i>
+                        <span>常住城市</span>
+                    </label>
+                    <div class="city-input-group">
+                        <input type="text" id="city-input" placeholder="输入城市（如: 北京）" value="深圳">
+                        <button id="btn-update-city" title="保存定位">
+                            <!-- 稳定可见的内联 SVG 勾号 -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 饮食偏好 -->
+                <div class="setting-section">
+                    <label class="section-label">
+                        <i data-lucide="heart" class="label-icon"></i>
+                        <span>饮食偏好</span>
+                    </label>
+                    <div class="preference-list">
+                        <!-- 偏好 0：无偏好 -->
+                        <div class="pref-card" data-goal="无偏好 (随缘享用)">
+                            <div class="pref-card-deco">
+                                <svg class="pref-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="9" y1="9" x2="9.01" y2="9" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="15" y1="9" x2="15.01" y2="9" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="pref-text">
+                                <div class="pref-header">
+                                    <span>无特殊偏好 (什么都吃)</span>
+                                    <svg class="check-icon hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                <p class="pref-desc">无特定口味偏好设定，尽享天下美食</p>
+                            </div>
+                        </div>
+
+                        <!-- 偏好 1：减脂 -->
+                        <div class="pref-card active" data-goal="减脂塑形 (低碳高蛋白)">
+                            <div class="pref-card-deco">
+                                <svg class="pref-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 18h12M12 2v20M9 6l3-3 3 3M9 18l3 3 3-3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="pref-text">
+                                <div class="pref-header">
+                                    <span>减脂塑形 (低碳)</span>
+                                    <!-- 稳定可见的内联 SVG check -->
+                                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                <p class="pref-desc">偏向高蛋白质、多蔬菜、低碳水</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 偏好 2：营养均衡 -->
+                        <div class="pref-card" data-goal="健康膳食 (营养均衡)">
+                            <div class="pref-card-deco">
+                                <svg class="pref-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="pref-text">
+                                <div class="pref-header">
+                                    <span>健康膳食 (均衡)</span>
+                                    <svg class="check-icon hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                <p class="pref-desc">少油少盐，荤素比例合理搭配</p>
+                            </div>
+                        </div>
+
+                        <!-- 偏好 3：中式养生 -->
+                        <div class="pref-card" data-goal="中式养生 (节气膳食)">
+                            <div class="pref-card-deco">
+                                <svg class="pref-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="pref-text">
+                                <div class="pref-header">
+                                    <span>中式养生 (养胃)</span>
+                                    <svg class="check-icon hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                <p class="pref-desc">顺应时令节气，温补调理调养</p>
+                            </div>
+                        </div>
+
+                        <!-- 偏好 4：极速烹饪 -->
+                        <div class="pref-card" data-goal="快手便当 (极速烹饪)">
+                            <div class="pref-card-deco">
+                                <svg class="pref-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="pref-text">
+                                <div class="pref-header">
+                                    <span>快手便当 (极速)</span>
+                                    <svg class="check-icon hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                <p class="pref-desc">简单省时，15分钟内极速出锅</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 忌口食材 -->
+                <div class="setting-section">
+                    <label class="section-label">
+                        <i data-lucide="shield-alert" class="label-icon"></i>
+                        <span>忌口食材 (自动避开)</span>
+                    </label>
+                    <div class="tags-container" id="avoid-tags-list">
+                        <!-- 动态生成 -->
+                    </div>
+                    <div class="add-tag-group">
+                        <input type="text" id="new-avoid-input" placeholder="添加忌口（如: 香菜）">
+                        <button id="btn-add-avoid" class="btn-secondary" title="添加忌口">
+                            <!-- 稳定可见的内联 SVG 加号 -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 自适应 Toggle -->
+                <div class="setting-section toggle-row">
+                    <div class="toggle-text">
+                        <label class="section-label">
+                            <i data-lucide="cloud-sun" class="label-icon"></i>
+                            <span>天气自适应推荐</span>
+                        </label>
+                        <p class="pref-desc">根据气温天气智能适配温补或清热食物</p>
+                    </div>
+                    <label class="switch-toggle">
+                        <input type="checkbox" id="weather-adapt-switch" checked>
+                        <span class="slider-round"></span>
+                    </label>
+                </div>
+
+                <!-- 底部会话重置 -->
+                <div class="sidebar-footer">
+                    <button id="btn-reset-session" class="btn-danger">
+                        <i data-lucide="rotate-ccw"></i>
+                        <span>重置会话 & 沉淀记忆</span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- 中间 Chat Area -->
+            <main class="chat-area">
+                <!-- 顶部天气与时令卷轴 -->
+                <header class="context-bar scroll-theme">
+                    <div class="scroll-wood scroll-wood-left"></div>
+                    <div class="context-left">
+                        <div class="weather-icon-badge">
+                            <i data-lucide="sun" class="weather-icon" id="weather-icon"></i>
+                        </div>
+                        <p class="weather-message" id="weather-message">
+                            正在探测当前城市气象与养生贴士... 🍂
+                        </p>
+                    </div>
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">小厨娘 AI 在线</span>
+                    </div>
+                    <div class="scroll-wood scroll-wood-right"></div>
+                </header>
+
+                <!-- 气泡对话流 -->
+                <div class="dialogue-container" id="chat-scroller">
+                    <!-- AI 初始欢迎信息 -->
+                    <div class="message-bubble message-ai">
+                        <div class="avatar-bubble">
+                            <svg class="avatar-mini-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="32" r="30" fill="#8E7A4A"/>
+                                <path d="M22 28C22 23.5 25.5 20 30 20H34C38.5 20 42 23.5 42 28C42 30 40 31.5 38.5 32.5V36H25.5V32.5C24 31.5 22 30 22 28Z" stroke="#FFF" stroke-width="2" fill="rgba(255,255,255,0.2)"/>
+                                <rect x="24" y="36" width="16" height="4" rx="2" fill="#FFF"/>
+                            </svg>
+                        </div>
+                        <div class="bubble-content">
+                            嗨！我是您的智能小厨娘 🍳。我已经读取了您的饮食画像并同步了冰箱库存。今天天气舒适，很适合品尝美味哦！您现在想吃点什么呢？🥰✨
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部输入框 -->
+                <footer class="chat-input-bar">
+                    <div class="input-container">
+                        <input type="text" id="chat-input" placeholder="输入您想做的菜或食材，向小厨娘提问..." autocomplete="off">
+                        <button id="btn-mic" class="icon-button" title="快捷发送“有什么食材？”">
+                            <i data-lucide="sparkles"></i>
+                        </button>
+                    </div>
+                    <button id="btn-send" class="btn-primary">
+                        <i data-lucide="send"></i>
+                    </button>
+                </footer>
+            </main>
+
+            <!-- 右侧 Sidebar：智能冰箱 -->
+            <aside class="sidebar sidebar-right">
+                <div class="fridge-header">
+                    <h3>
+                        <svg class="sidebar-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="5" y1="10" x2="19" y2="10"/>
+                            <line x1="9" y1="5" x2="9" y2="8"/>
+                            <line x1="9" y1="13" x2="9" y2="18"/>
+                        </svg>
+                        <span>智能冰箱库存</span>
+                    </h3>
+                    <span class="item-count-badge" id="fridge-count">0/10</span>
+                </div>
+
+                <!-- 快速添加食材表单 -->
+                <div class="fridge-add-card">
+                    <p class="add-title">入库 / 修改食材</p>
+                    <div class="add-row">
+                        <input type="text" id="fridge-item-name" placeholder="食材名 (如: 牛肉)" class="input-small">
+                        <input type="text" id="fridge-item-qty" placeholder="数量 (如: 500g)" class="input-small">
+                    </div>
+                    <div class="add-row margin-top-xs">
+                        <input type="number" id="fridge-item-expiry" placeholder="保质天数 (如: 3)" class="input-small">
+                        <button id="btn-add-fridge" class="btn-primary-small">确认存入</button>
+                    </div>
+                </div>
+
+                <!-- 冰箱食材列表 -->
+                <div class="fridge-shelf-container">
+                    <div class="fridge-list" id="fridge-item-list">
+                        <!-- 动态渲染 -->
+                        <div class="empty-state">
+                            <!-- 精美老式冰箱 SVG 插画 -->
+                            <svg class="empty-fridge-svg" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="20" y="10" width="60" height="100" rx="8" stroke="#8E7A4A" stroke-width="2.5" fill="rgba(142, 122, 74, 0.05)"/>
+                                <line x1="20" y1="55" x2="80" y2="55" stroke="#8E7A4A" stroke-width="2"/>
+                                <rect x="25" y="30" width="4" height="15" rx="2" fill="#8E7A4A"/>
+                                <rect x="25" y="65" width="4" height="20" rx="2" fill="#8E7A4A"/>
+                                <circle cx="50" cy="85" r="8" stroke="#8E7A4A" stroke-width="1.5" stroke-dasharray="2 2"/>
+                            </svg>
+                            <p>冰箱空空如也</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部操作说明 -->
+                <div class="fridge-footer-tip">
+                    <h4><i data-lucide="help-circle" class="small-icon"></i> 贴心提示</h4>
+                    <p>点击冰箱中的食材卡片即可直接填入输入框，极速发起提问。小厨娘会自动计算保质期并进行红点警报！</p>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- 挂载前端交互 JS -->
+    <script src="index.js"></script>
+</body>
+</html>

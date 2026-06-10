@@ -1,0 +1,46 @@
+# 敏感秘钥与本地偏好
+.env
+user_profile.json
+data/user_profile.json
+
+# 忽略超大语料数据文件（GitHub 限制单个文件 100MB）
+data/xiachufang/
+data/recipes.json
+data/*.json
+data/recipe/recipes_test_run.json  # 视大小而定，但通常可以不推或保留
+!data/recipe/recipes_test_run.json # 保留小测试 JSON 以便本地测试运行
+
+# Agent 缓存与脑区数据
+.gemini/
+brain/
+scratch/
+
+# Python 编译缓存
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# 虚拟环境
+venv/
+.venv/
+env/
+ENV/
+bin/
+lib/
+include/
+
+# IDE 与编辑器配置
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
+
+# 操作系统临时文件
+.DS_Store
+Thumbs.db

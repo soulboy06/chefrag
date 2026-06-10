@@ -1,0 +1,3013 @@
+{
+  "version": "2.13",
+  "children": [
+    {
+      "type": "frame",
+      "id": "YO10r",
+      "x": 0,
+      "y": 0,
+      "name": "ChefRAG Chat Screen",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F5F2E9FF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "esnb1",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 44,
+          "gap": 8,
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "D5glm",
+              "name": "Time",
+              "fill": "#2D2926FF",
+              "content": "20:30",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "frame",
+              "id": "Naa59",
+              "name": "Status Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "qbdHo",
+                  "name": "Signal Icon",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "#2D2926FF"
+                },
+                {
+                  "type": "icon",
+                  "id": "hqJ69",
+                  "name": "Wifi Icon",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "#2D2926FF"
+                },
+                {
+                  "type": "icon",
+                  "id": "QNphX",
+                  "name": "Battery Icon",
+                  "width": 20,
+                  "height": 16,
+                  "icon": "battery",
+                  "library": "lucide",
+                  "fill": "#2D2926FF"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EfMgH",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 56,
+          "stroke": "#DCD8CBFF",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "gap": 12,
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "V6KBFB",
+              "name": "Header Title",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "U3OW2",
+                  "name": "Chef Hat Icon",
+                  "width": 24,
+                  "height": 24,
+                  "icon": "cooking-pot",
+                  "library": "lucide",
+                  "fill": "#7D6B3DFF"
+                },
+                {
+                  "type": "text",
+                  "id": "nXGfv",
+                  "name": "Title Text",
+                  "fill": "#2D2926FF",
+                  "content": "Chef-RAG 智能厨娘",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "bold"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Ca6Qv",
+              "name": "Header Actions",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qYc3r",
+                  "name": "Btn Fridge",
+                  "fill": "#E8E4D8FF",
+                  "cornerRadius": 6,
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "leOq3",
+                      "name": "Fridge Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "refrigerator",
+                      "library": "lucide",
+                      "fill": "#4A3F24FF"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "J3hBbZ",
+                  "name": "Btn Profile",
+                  "fill": "#E8E4D8FF",
+                  "cornerRadius": 6,
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "y2s7H",
+                      "name": "Profile Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "user",
+                      "library": "lucide",
+                      "fill": "#4A3F24FF"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TPQcr",
+          "name": "Chat Content Area",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "n3JpX",
+              "name": "AI Welcome Bubble",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": [
+                0,
+                12,
+                12,
+                12
+              ],
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000005",
+                "offset": {
+                  "x": 0,
+                  "y": 2
+                },
+                "blur": 6
+              },
+              "layout": "vertical",
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "B1fOw",
+                  "name": "AI Welcome Content",
+                  "fill": "#2D2926FF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "嗨！我是您的智能小厨娘 🍳。我已经为您同步了冰箱的食材。今天深圳天气晴朗，气温 28°C，很适合来道清爽的美食哦！您今天想吃点什么呢？",
+                  "lineHeight": 1.4,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eW5XU",
+              "name": "User Msg Row",
+              "width": "fill_container",
+              "justifyContent": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oTzge",
+                  "name": "User Bubble",
+                  "fill": "#7D6B3DFF",
+                  "cornerRadius": [
+                    12,
+                    12,
+                    0,
+                    12
+                  ],
+                  "layout": "vertical",
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "O0Alce",
+                      "name": "User Message Content",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 220,
+                      "content": "我想用冰箱里的牛肉做个15分钟快手菜，避开忌口的香菜。",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "i7oFq",
+              "name": "Recipe Card",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000008",
+                "offset": {
+                  "x": 0,
+                  "y": 4
+                },
+                "blur": 12
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "q0Ik9p",
+                  "name": "Recipe Header",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "f6IUnX",
+                      "name": "Recipe Name",
+                      "fill": "#2D2926FF",
+                      "content": "蚝油牛肉炒时蔬",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "e9OiQ",
+                      "name": "Match Badge",
+                      "fill": "#E8F5E9",
+                      "cornerRadius": 6,
+                      "padding": [
+                        2,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "xeqtf",
+                          "name": "Match Text",
+                          "fill": "#2E7D32",
+                          "content": "95% 匹配",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "bold"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Dnq2H",
+                  "name": "Recipe Tags Row",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "NgIPr",
+                      "name": "Tag 1",
+                      "fill": "#E8E4D8FF",
+                      "cornerRadius": 6,
+                      "padding": [
+                        2,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "fxzIl",
+                          "name": "Tag 1 Text",
+                          "fill": "#5E5954FF",
+                          "content": "高蛋白",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "U88pN4",
+                      "name": "Tag 2",
+                      "fill": "#E8E4D8FF",
+                      "cornerRadius": 6,
+                      "padding": [
+                        2,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "EgaFe",
+                          "name": "Tag 2 Text",
+                          "fill": "#5E5954FF",
+                          "content": "15分钟快手",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "HNMDq",
+                      "name": "Tag 3",
+                      "fill": "#FCE8E6",
+                      "cornerRadius": 6,
+                      "padding": [
+                        2,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "M6M96",
+                          "name": "Tag 3 Text",
+                          "fill": "#C5221F",
+                          "content": "已避开香菜",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "EhBFe",
+                  "name": "Recipe Summary",
+                  "fill": "#5E5954FF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "食材：牛肉 (冰箱已有)、彩椒 (冰箱已有)、西兰花 (缺)\n这是一道极其快捷的美味家常菜，浓郁的蚝油包裹嫩滑的牛肉，配以西兰花，营养丰富且省时。",
+                  "lineHeight": 1.4,
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "Zud0l",
+                  "name": "Recipe Btn",
+                  "width": "fill_container",
+                  "fill": "#7D6B3DFF",
+                  "cornerRadius": 6,
+                  "padding": 10,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KKrSe",
+                      "name": "Recipe Btn Text",
+                      "fill": "#FFFFFF",
+                      "content": "查看烹饪步骤",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "bold"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wWZb3",
+          "name": "Footer Area",
+          "width": "fill_container",
+          "height": 72,
+          "stroke": "#DCD8CBFF",
+          "strokeWidth": {
+            "top": 1
+          },
+          "gap": 10,
+          "padding": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "nRJnZ",
+              "name": "Input Frame",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 9999,
+              "stroke": "#DCD8CBFF",
+              "strokeWidth": 1,
+              "gap": 8,
+              "padding": [
+                8,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "AdnFu",
+                  "name": "Mic Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "mic",
+                  "library": "lucide",
+                  "fill": "#8C8782FF"
+                },
+                {
+                  "type": "text",
+                  "id": "UTnKC",
+                  "name": "Placeholder Text",
+                  "fill": "#8C8782FF",
+                  "content": "问问小厨娘怎么做...",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Oh5CI",
+              "name": "Btn Send",
+              "fill": "#7D6B3DFF",
+              "cornerRadius": 9999,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "MHQTz",
+                  "name": "Send Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "send",
+                  "library": "lucide",
+                  "fill": "#FFFFFF"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "n5oQnJ",
+      "x": 470,
+      "y": 0,
+      "name": "ChefRAG Fridge Screen",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F5F2E9FF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "VU4aC",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 44,
+          "gap": 8,
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "HqSWT",
+              "name": "Time",
+              "fill": "#2D2926FF",
+              "content": "20:30",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "frame",
+              "id": "g945Tf",
+              "name": "Status Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "jbIcY",
+                  "name": "Signal Icon",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "#2D2926FF"
+                },
+                {
+                  "type": "icon",
+                  "id": "qpKb3",
+                  "name": "Wifi Icon",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "#2D2926FF"
+                },
+                {
+                  "type": "icon",
+                  "id": "Spigy",
+                  "name": "Battery Icon",
+                  "width": 20,
+                  "height": 16,
+                  "icon": "battery",
+                  "library": "lucide",
+                  "fill": "#2D2926FF"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "bKIlO",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 56,
+          "stroke": "#DCD8CBFF",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "gap": 12,
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "eqqNd",
+              "name": "Header Title",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "V5w5Ba",
+                  "name": "Chef Hat Icon",
+                  "width": 24,
+                  "height": 24,
+                  "icon": "cooking-pot",
+                  "library": "lucide",
+                  "fill": "#7D6B3DFF"
+                },
+                {
+                  "type": "text",
+                  "id": "vkeg0",
+                  "name": "Title Text",
+                  "fill": "#2D2926FF",
+                  "content": "Chef-RAG 智能厨娘",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "bold"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HKPG8",
+              "name": "Header Actions",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jfIq4",
+                  "name": "Btn Fridge",
+                  "fill": "#E8E4D8FF",
+                  "cornerRadius": 6,
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "o6niJa",
+                      "name": "Fridge Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "refrigerator",
+                      "library": "lucide",
+                      "fill": "#4A3F24FF"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "J8H7pl",
+                  "name": "Btn Profile",
+                  "fill": "#E8E4D8FF",
+                  "cornerRadius": 6,
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "DsKzA",
+                      "name": "Profile Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "user",
+                      "library": "lucide",
+                      "fill": "#4A3F24FF"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cBJEH",
+          "name": "Chat Content Area",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "Q9ydya",
+              "name": "AI Welcome Bubble",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": [
+                0,
+                12,
+                12,
+                12
+              ],
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000005",
+                "offset": {
+                  "x": 0,
+                  "y": 2
+                },
+                "blur": 6
+              },
+              "layout": "vertical",
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eWrQ1",
+                  "name": "AI Welcome Content",
+                  "fill": "#2D2926FF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "嗨！我是您的智能小厨娘 🍳。我已经为您同步了冰箱的食材。今天深圳天气晴朗，气温 28°C，很适合来道清爽的美食哦！您今天想吃点什么呢？",
+                  "lineHeight": 1.4,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TIlsv",
+              "name": "User Msg Row",
+              "width": "fill_container",
+              "justifyContent": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "A1z7p",
+                  "name": "User Bubble",
+                  "fill": "#7D6B3DFF",
+                  "cornerRadius": [
+                    12,
+                    12,
+                    0,
+                    12
+                  ],
+                  "layout": "vertical",
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "M0vBAg",
+                      "name": "User Message Content",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 220,
+                      "content": "我想用冰箱里的牛肉做个15分钟快手菜，避开忌口的香菜。",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "UrNaT",
+              "name": "Recipe Card",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000008",
+                "offset": {
+                  "x": 0,
+                  "y": 4
+                },
+                "blur": 12
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "CxoBq",
+                  "name": "Recipe Header",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "R3wXFU",
+                      "name": "Recipe Name",
+                      "fill": "#2D2926FF",
+                      "content": "蚝油牛肉炒时蔬",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "C5Fvg",
+                      "name": "Match Badge",
+                      "fill": "#E8F5E9",
+                      "cornerRadius": 6,
+                      "padding": [
+                        2,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "d6FmxE",
+                          "name": "Match Text",
+                          "fill": "#2E7D32",
+                          "content": "95% 匹配",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "bold"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ErhGh",
+                  "name": "Recipe Tags Row",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "A0kr0",
+                      "name": "Tag 1",
+                      "fill": "#E8E4D8FF",
+                      "cornerRadius": 6,
+                      "padding": [
+                        2,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "wxdou",
+                          "name": "Tag 1 Text",
+                          "fill": "#5E5954FF",
+                          "content": "高蛋白",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "aMmuz",
+                      "name": "Tag 2",
+                      "fill": "#E8E4D8FF",
+                      "cornerRadius": 6,
+                      "padding": [
+                        2,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "l6nKUB",
+                          "name": "Tag 2 Text",
+                          "fill": "#5E5954FF",
+                          "content": "15分钟快手",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "IfLKJ",
+                      "name": "Tag 3",
+                      "fill": "#FCE8E6",
+                      "cornerRadius": 6,
+                      "padding": [
+                        2,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ATcE9",
+                          "name": "Tag 3 Text",
+                          "fill": "#C5221F",
+                          "content": "已避开香菜",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "iUGPO",
+                  "name": "Recipe Summary",
+                  "fill": "#5E5954FF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "食材：牛肉 (冰箱已有)、彩椒 (冰箱已有)、西兰花 (缺)\n这是一道极其快捷的美味家常菜，浓郁的蚝油包裹嫩滑的牛肉，配以西兰花，营养丰富且省时。",
+                  "lineHeight": 1.4,
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "CuYos",
+                  "name": "Recipe Btn",
+                  "width": "fill_container",
+                  "fill": "#7D6B3DFF",
+                  "cornerRadius": 6,
+                  "padding": 10,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gRafA",
+                      "name": "Recipe Btn Text",
+                      "fill": "#FFFFFF",
+                      "content": "查看烹饪步骤",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "bold"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pgDrH",
+          "name": "Footer Area",
+          "width": "fill_container",
+          "height": 72,
+          "stroke": "#DCD8CBFF",
+          "strokeWidth": {
+            "top": 1
+          },
+          "gap": 10,
+          "padding": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "xQqm9",
+              "name": "Input Frame",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 9999,
+              "stroke": "#DCD8CBFF",
+              "strokeWidth": 1,
+              "gap": 8,
+              "padding": [
+                8,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "xtYb1",
+                  "name": "Mic Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "mic",
+                  "library": "lucide",
+                  "fill": "#8C8782FF"
+                },
+                {
+                  "type": "text",
+                  "id": "Gvnep",
+                  "name": "Placeholder Text",
+                  "fill": "#8C8782FF",
+                  "content": "问问小厨娘怎么做...",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OZsEO",
+              "name": "Btn Send",
+              "fill": "#7D6B3DFF",
+              "cornerRadius": 9999,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "OcTJ8",
+                  "name": "Send Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "send",
+                  "library": "lucide",
+                  "fill": "#FFFFFF"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "catWv",
+          "layoutPosition": "absolute",
+          "x": 90,
+          "y": 44,
+          "name": "Fridge Drawer Panel",
+          "width": 300,
+          "height": 800,
+          "fill": "#E8E4D8F2",
+          "effect": [
+            {
+              "type": "background_blur",
+              "radius": 12
+            },
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#0000001A",
+              "offset": {
+                "x": -4,
+                "y": 0
+              },
+              "blur": 20
+            }
+          ],
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "Y3jd67",
+              "name": "Drawer Header",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "MkS64",
+                  "name": "Drawer Title",
+                  "fill": "#2D2926FF",
+                  "content": "智能冰箱 (4/10)",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "frame",
+                  "id": "vZysW",
+                  "name": "Drawer Header Actions",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "sZSrq",
+                      "name": "Add Ingredient Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "plus",
+                      "library": "lucide",
+                      "fill": "#7D6B3DFF"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "ljZKp",
+                      "name": "Close Drawer Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "x",
+                      "library": "lucide",
+                      "fill": "#5E5954FF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "DgnKi",
+              "name": "Ingredients List",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oA8Oh",
+                  "name": "Ingredient Item 1",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "padding": 10,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "DMver",
+                      "name": "Item 1 Left",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "WF6vj",
+                          "name": "Expiry Dot 1",
+                          "fill": "#C5221F",
+                          "width": 8,
+                          "height": 8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dII9k",
+                          "name": "Item 1 Text Stack",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "B0rXqz",
+                              "name": "Item 1 Title",
+                              "fill": "#2D2926FF",
+                              "content": "牛肉",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "bold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "G7xmx",
+                              "name": "Item 1 Detail",
+                              "fill": "#C5221F",
+                              "content": "500g | 剩 2 天过期",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "soBPI",
+                      "name": "Item 1 Right",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "H6yhrg",
+                          "name": "Edit Icon 1",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "pencil",
+                          "library": "lucide",
+                          "fill": "#8C8782FF"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "ADMsP",
+                          "name": "Delete Icon 1",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "trash-2",
+                          "library": "lucide",
+                          "fill": "#8C8782FF"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LuqwP",
+                  "name": "Ingredient Item 2",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "padding": 10,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "XmAZz",
+                      "name": "Item 2 Left",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "ijmL3",
+                          "name": "Expiry Dot 2",
+                          "fill": "#2E7D32",
+                          "width": 8,
+                          "height": 8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "u7UjU",
+                          "name": "Item 2 Text Stack",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "lhCQh",
+                              "name": "Item 2 Title",
+                              "fill": "#2D2926FF",
+                              "content": "番茄",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "bold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "WDL2Q",
+                              "name": "Item 2 Detail",
+                              "fill": "#5E5954FF",
+                              "content": "3 个 | 剩 5 天",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "c0O8r",
+                      "name": "Item 2 Right",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "mM426",
+                          "name": "Edit Icon 2",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "pencil",
+                          "library": "lucide",
+                          "fill": "#8C8782FF"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "O5XBU",
+                          "name": "Delete Icon 2",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "trash-2",
+                          "library": "lucide",
+                          "fill": "#8C8782FF"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pNdFz",
+                  "name": "Ingredient Item 3",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "padding": 10,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n8LMST",
+                      "name": "Item 3 Left",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "HnLrl",
+                          "name": "Expiry Dot 3",
+                          "fill": "#2E7D32",
+                          "width": 8,
+                          "height": 8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "fi79k",
+                          "name": "Item 3 Text Stack",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Dose7",
+                              "name": "Item 3 Title",
+                              "fill": "#2D2926FF",
+                              "content": "鸡蛋",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "bold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "sC6sB",
+                              "name": "Item 3 Detail",
+                              "fill": "#5E5954FF",
+                              "content": "6 枚 | 剩 12 天",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "QPDnN",
+                      "name": "Item 3 Right",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "pNhXP",
+                          "name": "Edit Icon 3",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "pencil",
+                          "library": "lucide",
+                          "fill": "#8C8782FF"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "NOuc4",
+                          "name": "Delete Icon 3",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "trash-2",
+                          "library": "lucide",
+                          "fill": "#8C8782FF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "M4siW",
+              "name": "Quick Input Frame",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 6,
+              "stroke": "#DCD8CBFF",
+              "strokeWidth": 1,
+              "padding": [
+                8,
+                12
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FsYnp",
+                  "name": "Quick Input Placeholder",
+                  "fill": "#8C8782FF",
+                  "content": "快速添加食材...",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "icon",
+                  "id": "e2gfz",
+                  "name": "Quick Add Arrow",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "arrow-right",
+                  "library": "lucide",
+                  "fill": "#7D6B3DFF"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Ps70P",
+      "x": 940,
+      "y": 0,
+      "name": "ChefRAG Profile Screen",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F5F2E9FF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "XKbCf",
+          "name": "Status Bar 3",
+          "width": "fill_container",
+          "height": 44,
+          "gap": 8,
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "K0PaFo",
+              "name": "Time 3",
+              "fill": "#2D2926FF",
+              "content": "20:30",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "frame",
+              "id": "cT94E",
+              "name": "Status Icons 3",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "dkUxE",
+                  "name": "Signal Icon 3",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "#2D2926FF"
+                },
+                {
+                  "type": "icon",
+                  "id": "iEFsw",
+                  "name": "Wifi Icon 3",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "#2D2926FF"
+                },
+                {
+                  "type": "icon",
+                  "id": "GKAcn",
+                  "name": "Battery Icon 3",
+                  "width": 20,
+                  "height": 16,
+                  "icon": "battery",
+                  "library": "lucide",
+                  "fill": "#2D2926FF"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DR0Fe",
+          "name": "Header 3",
+          "width": "fill_container",
+          "height": 56,
+          "stroke": "#DCD8CBFF",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "gap": 12,
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "mIAM1",
+              "name": "Back Icon",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-left",
+              "library": "lucide",
+              "fill": "#2D2926FF"
+            },
+            {
+              "type": "text",
+              "id": "t14SF",
+              "name": "Title Text 3",
+              "fill": "#2D2926FF",
+              "content": "个人偏好设置",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "frame",
+              "id": "ue2qc",
+              "name": "Header Placeholder 3",
+              "width": 20,
+              "height": 20
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "kPD50",
+          "name": "Settings Scroll Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "a3MjH",
+              "name": "Group City",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ETQss",
+                  "name": "City Label",
+                  "fill": "#5E5954FF",
+                  "content": "常住城市",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "frame",
+                  "id": "eelrJ",
+                  "name": "City Input Frame",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "stroke": "#DCD8CBFF",
+                  "strokeWidth": 1,
+                  "padding": 12,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "v05tg",
+                      "name": "City Value",
+                      "fill": "#2D2926FF",
+                      "content": "深圳",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "W6Oh3g",
+                      "name": "Location Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "map-pin",
+                      "library": "lucide",
+                      "fill": "#7D6B3DFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ggMr6",
+              "name": "Group Diet",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HcjzX",
+                  "name": "Diet Label",
+                  "fill": "#5E5954FF",
+                  "content": "饮食偏好 (多选)",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "frame",
+                  "id": "z3xPu",
+                  "name": "Option Selected",
+                  "width": "fill_container",
+                  "fill": "#E8E4D8FF",
+                  "cornerRadius": 6,
+                  "stroke": "#7D6B3DFF",
+                  "strokeWidth": 1.5,
+                  "padding": 12,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "pvJqZ",
+                      "name": "Opt Sel Text Stack",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "IgbCj",
+                          "name": "Opt Sel Title",
+                          "fill": "#2D2926FF",
+                          "content": "减脂塑形 (低碳高蛋白)",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "loOzQ",
+                          "name": "Opt Sel Desc",
+                          "fill": "#5E5954FF",
+                          "content": "偏向高蛋白质、多蔬菜、低碳水",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "CvdK0",
+                      "name": "Check Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "check",
+                      "library": "lucide",
+                      "fill": "#7D6B3DFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OVmNw",
+                  "name": "Option Normal",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "stroke": "#DCD8CBFF",
+                  "strokeWidth": 1,
+                  "padding": 12,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GvCxm",
+                      "name": "Opt Nor Text Stack",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LG2ud",
+                          "name": "Opt Nor Title",
+                          "fill": "#2D2926FF",
+                          "content": "健康膳食 (营养均衡)",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "oj3QY",
+                          "name": "Opt Nor Desc",
+                          "fill": "#5E5954FF",
+                          "content": "少油少盐，荤素合理搭配",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "B4DCJ",
+              "name": "Group Avoid",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "no5Yz",
+                  "name": "Avoid Label",
+                  "fill": "#5E5954FF",
+                  "content": "忌口食材",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "frame",
+                  "id": "JLmkS",
+                  "name": "Avoid Tags Flow",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ZhiRh",
+                      "name": "Avoid Tag 1",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 9999,
+                      "stroke": "#DCD8CBFF",
+                      "strokeWidth": 1,
+                      "gap": 6,
+                      "padding": [
+                        4,
+                        10
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "JLTBR",
+                          "name": "Avoid Tag 1 Content",
+                          "fill": "#2D2926FF",
+                          "content": "香菜",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "FHzWe",
+                          "name": "Avoid Tag 1 Delete",
+                          "fill": "#8C8782FF",
+                          "content": "✕",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zBkSp",
+                      "name": "Avoid Tag 2",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 9999,
+                      "stroke": "#DCD8CBFF",
+                      "strokeWidth": 1,
+                      "gap": 6,
+                      "padding": [
+                        4,
+                        10
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ifKTN",
+                          "name": "Avoid Tag 2 Content",
+                          "fill": "#2D2926FF",
+                          "content": "海鲜",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "lc89p",
+                          "name": "Avoid Tag 2 Delete",
+                          "fill": "#8C8782FF",
+                          "content": "✕",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pvHOS",
+                      "name": "Avoid Tag Add",
+                      "fill": "#E8E4D8FF",
+                      "cornerRadius": 9999,
+                      "gap": 4,
+                      "padding": [
+                        4,
+                        10
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "a8OIh",
+                          "name": "Add Icon Text",
+                          "fill": "#7D6B3DFF",
+                          "content": "＋",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "YdCmt",
+                          "name": "Add Label Text",
+                          "fill": "#7D6B3DFF",
+                          "content": "添加忌口",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Ltdoq",
+              "name": "Toggle Group Frame",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 6,
+              "stroke": "#DCD8CBFF",
+              "strokeWidth": 1,
+              "padding": 12,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Oqn5c",
+                  "name": "Toggle Text Stack",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "U9Hbr",
+                      "name": "Toggle Title",
+                      "fill": "#2D2926FF",
+                      "content": "天气自适应推荐",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "jiqFe",
+                      "name": "Toggle Desc",
+                      "fill": "#5E5954FF",
+                      "content": "根据实时天气智能推荐清爽或温补的食物",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DUtHF",
+                  "name": "Toggle Switch Pill",
+                  "width": 44,
+                  "height": 24,
+                  "fill": "#7D6B3DFF",
+                  "cornerRadius": 9999,
+                  "padding": 2,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "cN92P",
+                      "name": "Toggle Handle",
+                      "fill": "#FFFFFF",
+                      "width": 20,
+                      "height": 20
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "W0xeg0",
+          "name": "Save Footer Area",
+          "width": "fill_container",
+          "stroke": "#DCD8CBFF",
+          "strokeWidth": {
+            "top": 1
+          },
+          "padding": 12,
+          "children": [
+            {
+              "type": "frame",
+              "id": "mXEVJ",
+              "name": "Btn Save",
+              "width": "fill_container",
+              "fill": "#7D6B3DFF",
+              "cornerRadius": 6,
+              "padding": 12,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kXuTG",
+                  "name": "Save Text",
+                  "fill": "#FFFFFF",
+                  "content": "保存并应用偏好",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "q1qQmO",
+      "x": 0,
+      "y": 944,
+      "name": "ChefRAG Web Dashboard",
+      "clip": true,
+      "width": 1280,
+      "height": 800,
+      "fill": "#F5F2E9FF",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Bid12",
+          "name": "Sidebar Left Preferences",
+          "width": 280,
+          "height": "fill_container",
+          "fill": "#E8E4D8FF",
+          "stroke": "#DCD8CBFF",
+          "strokeWidth": {
+            "right": 1
+          },
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 20,
+          "children": [
+            {
+              "type": "frame",
+              "id": "n6NsH",
+              "name": "Profile Header Web",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Od3YX",
+                  "name": "Avatar Icon Web",
+                  "width": 36,
+                  "height": 36,
+                  "icon": "user",
+                  "library": "lucide",
+                  "fill": "#7D6B3DFF"
+                },
+                {
+                  "type": "frame",
+                  "id": "eS8Zz",
+                  "name": "User Text Stack Web",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "P51Q5",
+                      "name": "User Name Web",
+                      "fill": "#2D2926FF",
+                      "content": "健康小管家",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "o2SSV",
+                      "name": "User Location Web",
+                      "fill": "#5E5954FF",
+                      "content": "定位: 深圳 (晴 28°C)",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Fe2kl",
+              "name": "Avoid Group Web",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wPAXL",
+                  "name": "Avoid Title Web",
+                  "fill": "#8C8782FF",
+                  "content": "已设定忌口食材",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "frame",
+                  "id": "N0uvGl",
+                  "name": "Avoid Tags Web",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "K1ZoT",
+                      "name": "Coriander Tag Web",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 6,
+                      "stroke": "#DCD8CBFF",
+                      "strokeWidth": 1,
+                      "gap": 4,
+                      "padding": [
+                        4,
+                        8
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ZJKrS",
+                          "name": "Coriander Text Web",
+                          "fill": "#2D2926FF",
+                          "content": "香菜 ✕",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "a2sN6",
+                      "name": "Seafood Tag Web",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 6,
+                      "stroke": "#DCD8CBFF",
+                      "strokeWidth": 1,
+                      "gap": 4,
+                      "padding": [
+                        4,
+                        8
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "pFKN0",
+                          "name": "Seafood Text Web",
+                          "fill": "#2D2926FF",
+                          "content": "海鲜 ✕",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NjpzV",
+              "name": "Diet Group Web",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Vjzrn",
+                  "name": "Diet Title Web",
+                  "fill": "#8C8782FF",
+                  "content": "当前饮食偏好",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "frame",
+                  "id": "jMDMM",
+                  "name": "Diet Item 1 Web",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "stroke": "#7D6B3DFF",
+                  "strokeWidth": 1.5,
+                  "padding": 10,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ePf0b",
+                      "name": "Diet 1 Text Web",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "adJ6N",
+                          "name": "Diet 1 Title Web",
+                          "fill": "#2D2926FF",
+                          "content": "减脂塑形 (低碳高蛋白)",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "WxeO7",
+                      "name": "Diet 1 Check Web",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "check",
+                      "library": "lucide",
+                      "fill": "#7D6B3DFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Dmqjf",
+                  "name": "Diet Item 2 Web",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "stroke": "#DCD8CBFF",
+                  "strokeWidth": 1,
+                  "padding": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "g4XGW",
+                      "name": "Diet 2 Title Web",
+                      "fill": "#5E5954FF",
+                      "content": "健康膳食 (营养均衡)",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LURn9",
+              "name": "Adapt Group Web",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 6,
+              "stroke": "#DCD8CBFF",
+              "strokeWidth": 1,
+              "padding": 10,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "mZxyN",
+                  "name": "Adapt Label Web",
+                  "fill": "#2D2926FF",
+                  "content": "天气自适应推荐",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "qZLLE",
+                  "name": "Toggle Web Frame",
+                  "width": 36,
+                  "height": 20,
+                  "fill": "#7D6B3DFF",
+                  "cornerRadius": 9999,
+                  "padding": 2,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "g7hkf",
+                      "name": "Toggle Web Handle",
+                      "fill": "#FFFFFF",
+                      "width": 16,
+                      "height": 16
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "b7prq",
+          "name": "Chat Area Middle",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 20,
+          "children": [
+            {
+              "type": "frame",
+              "id": "f0XEdC",
+              "name": "Weather Context Bar",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 8,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000005",
+                "offset": {
+                  "x": 0,
+                  "y": 2
+                },
+                "blur": 6
+              },
+              "padding": 12,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "yRkq1",
+                  "name": "Weather Left Web",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "qIKN4",
+                      "name": "Sun Icon Web",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "sun",
+                      "library": "lucide",
+                      "fill": "#F59E0B"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OfmWB",
+                      "name": "Weather Text Web",
+                      "fill": "#2D2926FF",
+                      "content": "今天深圳天气晴朗 28°C ☀️ 推荐做一些清爽去火的菜品。夏季时令食材已为您标注。",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "L37I4",
+                  "name": "Chef Online Web",
+                  "fill": "#2E7D32",
+                  "content": "● 小厨娘 AI 在线",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "bold"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TXTtM",
+              "name": "Dialog Scroll Container",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "bwQft",
+                  "name": "AI Welcome Bubble Web",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": [
+                    0,
+                    12,
+                    12,
+                    12
+                  ],
+                  "layout": "vertical",
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zqqhH",
+                      "name": "AI Welcome Content Web",
+                      "fill": "#2D2926FF",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "嗨！我是您的智能小厨娘 🍳。我已经同步了您的偏好和冰箱食材。牛肉和西兰花搭配做蚝油牛肉快手菜非常合适哦！",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pAwlq",
+                  "name": "User Msg Row Web",
+                  "width": "fill_container",
+                  "justifyContent": "end",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "AIoG6",
+                      "name": "User Bubble Web",
+                      "fill": "#7D6B3DFF",
+                      "cornerRadius": [
+                        12,
+                        12,
+                        0,
+                        12
+                      ],
+                      "layout": "vertical",
+                      "padding": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "e0UwfN",
+                          "name": "User Content Web",
+                          "fill": "#FFFFFF",
+                          "textGrowth": "fixed-width",
+                          "width": 260,
+                          "content": "做个 15 分钟快手牛肉，不加香菜。",
+                          "lineHeight": 1.4,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "c98ls0",
+                  "name": "Recipe Card Web",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 12,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000008",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 12
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "eDn8Q",
+                      "name": "Recipe Header Web",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Nxr9E",
+                          "name": "Recipe Name Web",
+                          "fill": "#2D2926FF",
+                          "content": "蚝油牛肉炒西兰花",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "bold"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "b5FKpd",
+                          "name": "Match Badge Web",
+                          "fill": "#E8F5E9",
+                          "cornerRadius": 6,
+                          "padding": [
+                            2,
+                            6
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "m5a0Or",
+                              "name": "Match Text Web",
+                              "fill": "#2E7D32",
+                              "content": "95% 匹配度",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "bold"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "HYrZp",
+                      "name": "Tags Row Web",
+                      "width": "fill_container",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "TZx50",
+                          "fill": "#E8E4D8FF",
+                          "cornerRadius": 6,
+                          "padding": [
+                            2,
+                            6
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "DzRhj",
+                              "fill": "#5E5954FF",
+                              "content": "高蛋白",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "EbRR8",
+                          "fill": "#E8E4D8FF",
+                          "cornerRadius": 6,
+                          "padding": [
+                            2,
+                            6
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "SYQzi",
+                              "fill": "#5E5954FF",
+                              "content": "15分钟快速",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "bKqTu",
+                          "fill": "#FCE8E6",
+                          "cornerRadius": 6,
+                          "padding": [
+                            2,
+                            6
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "yF0ah",
+                              "fill": "#C5221F",
+                              "content": "已避开香菜",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "WIpmm",
+                      "name": "Recipe Summary Web",
+                      "fill": "#5E5954FF",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "搭配说明：该食谱耗时 12 分钟，完美吻合快手菜需求。牛肉提供高额蛋白，与冰箱内即将过期的牛肉、西兰花高度匹配，全程烹饪无需香菜，风味鲜美。",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ZP8BF",
+                      "name": "Recipe Btn Web",
+                      "width": "fill_container",
+                      "fill": "#7D6B3DFF",
+                      "cornerRadius": 6,
+                      "padding": 10,
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "A126Hr",
+                          "name": "Recipe Btn Text Web",
+                          "fill": "#FFFFFF",
+                          "content": "查看完整烹饪图文步骤",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "bold"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HwB8j",
+              "name": "Chat Input Box Web",
+              "width": "fill_container",
+              "stroke": "#DCD8CBFF",
+              "strokeWidth": {
+                "top": 1
+              },
+              "gap": 12,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n6jnd",
+                  "name": "Input Frame Web",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 9999,
+                  "stroke": "#DCD8CBFF",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "padding": [
+                    10,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mJthb",
+                      "name": "Placeholder Web",
+                      "fill": "#8C8782FF",
+                      "content": "告诉小厨娘你想吃什么...",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "UfJkx",
+                  "name": "Btn Send Web",
+                  "fill": "#7D6B3DFF",
+                  "cornerRadius": 9999,
+                  "padding": 10,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "J5lyf",
+                      "name": "Send Icon Web",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "send",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "WiBgD",
+          "name": "Sidebar Right Fridge",
+          "width": 320,
+          "height": "fill_container",
+          "fill": "#E8E4D8FF",
+          "stroke": "#DCD8CBFF",
+          "strokeWidth": {
+            "left": 1
+          },
+          "layout": "vertical",
+          "gap": 20,
+          "padding": 20,
+          "children": [
+            {
+              "type": "frame",
+              "id": "C9IoMi",
+              "name": "Fridge Title Bar Web",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "uPwXo",
+                  "name": "Fridge Title Web",
+                  "fill": "#2D2926FF",
+                  "content": "我的智能冰箱 (4/10)",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "frame",
+                  "id": "cTDbn",
+                  "name": "Btn Add Web",
+                  "fill": "#F5F2E9FF",
+                  "cornerRadius": 6,
+                  "padding": [
+                    4,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "EQAmI",
+                      "name": "Add Text Web",
+                      "fill": "#7D6B3DFF",
+                      "content": "+ 新增",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "bold"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jSPgj",
+              "name": "Fridge List Web",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "c4ga2g",
+                  "name": "Fridge Item 1 Web",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "padding": 10,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "sDJAA",
+                      "name": "FI 1 Left Web",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "SEcC8",
+                          "name": "FI Expiry Dot 1 Web",
+                          "fill": "#C5221F",
+                          "width": 8,
+                          "height": 8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dyXRQ",
+                          "name": "FI 1 Text Stack Web",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "cotbd",
+                              "name": "FI 1 Title Web",
+                              "fill": "#2D2926FF",
+                              "content": "牛肉",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "bold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "iKksB",
+                              "name": "FI 1 Detail Web",
+                              "fill": "#C5221F",
+                              "content": "500g | 剩 2 天过期",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vg2d1",
+                  "name": "Fridge Item 2 Web",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "padding": 10,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "tAIgc",
+                      "name": "FI 2 Left Web",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "x7yuf",
+                          "name": "FI Expiry Dot 2 Web",
+                          "fill": "#2E7D32",
+                          "width": 8,
+                          "height": 8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Zjhx5",
+                          "name": "FI 2 Text Stack Web",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "CcAqw",
+                              "name": "FI 2 Title Web",
+                              "fill": "#2D2926FF",
+                              "content": "番茄",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "bold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "F69od",
+                              "name": "FI 2 Detail Web",
+                              "fill": "#5E5954FF",
+                              "content": "3 个 | 剩 5 天",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jA52C",
+                  "name": "Fridge Item 3 Web",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "padding": 10,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "oyVEd",
+                      "name": "FI 3 Left Web",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "DZ9g7",
+                          "name": "FI Expiry Dot 3 Web",
+                          "fill": "#2E7D32",
+                          "width": 8,
+                          "height": 8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "cELPE",
+                          "name": "FI 3 Text Stack Web",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "jC9lc",
+                              "name": "FI 3 Title Web",
+                              "fill": "#2D2926FF",
+                              "content": "鸡蛋",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "bold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "mYRlr",
+                              "name": "FI 3 Detail Web",
+                              "fill": "#5E5954FF",
+                              "content": "6 枚 | 剩 12 天",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "MTPEW",
+                  "name": "Fridge Item 4 Web",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "padding": 10,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "QNicm",
+                      "name": "FI 4 Left Web",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "nXgrC",
+                          "name": "FI Expiry Dot 4 Web",
+                          "fill": "#C5221F",
+                          "width": 8,
+                          "height": 8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "P2U52F",
+                          "name": "FI 4 Text Stack Web",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "pVkAJ",
+                              "name": "FI 4 Title Web",
+                              "fill": "#2D2926FF",
+                              "content": "西兰花",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "bold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Qvqru",
+                              "name": "FI 4 Detail Web",
+                              "fill": "#C5221F",
+                              "content": "1 朵 | 剩 1 天",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "X2BVOV",
+              "name": "Web Tip Card Frame",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 6,
+              "stroke": "#DCD8CBFF",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sEH5p",
+                  "name": "Tip Title Web",
+                  "fill": "#7D6B3DFF",
+                  "content": "💡 快捷小操作",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "i9NFA9",
+                  "name": "Tip Desc Web",
+                  "fill": "#5E5954FF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "您可以勾选右侧冰箱食材后，点击“导入到对话”直接作为与小厨娘聊天的背景材料哦！",
+                  "lineHeight": 1.4,
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
