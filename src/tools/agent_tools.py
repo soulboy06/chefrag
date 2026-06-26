@@ -13,6 +13,22 @@ inventory_tool = InventoryTool()
 context_tool = ContextTool()
 profile_tool = UserProfileTool()
 
+# 保存默认实例引用，用于事后恢复
+_default_inventory_tool = inventory_tool
+_default_profile_tool = profile_tool
+
+def set_session_tools(session_inventory_tool: InventoryTool, session_profile_tool: UserProfileTool):
+    """将全局工具实例替换为当前 session 的实例，保证 Agent 对话与前端数据源一致。"""
+    global inventory_tool, profile_tool
+    inventory_tool = session_inventory_tool
+    profile_tool = session_profile_tool
+
+def restore_default_tools():
+    """恢复为默认的全局工具实例。"""
+    global inventory_tool, profile_tool
+    inventory_tool = _default_inventory_tool
+    profile_tool = _default_profile_tool
+
 try:
     retriever = RecipeRetriever()
 except Exception as e:

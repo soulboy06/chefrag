@@ -41,6 +41,9 @@ include/
 *.swp
 *~
 
+# 本地 pip 缓存
+venv_pkgs/
+
 # 操作系统临时文件
 .DS_Store
 Thumbs.db
